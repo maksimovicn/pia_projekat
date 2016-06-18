@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="pia_projekat"/>
+  <table-filter match-name="modification"/>
+  <table-filter match-name="schedule"/>
+  <table-filter match-name="document"/>
+  <table-filter match-name="conference"/>
+  <table-filter match-name="conf_fld_rev"/>
+  <table-filter match-name="field"/>
+  <table-filter match-name="user"/>
+  <table-filter match-name="auth_doc"/>
+  <table-filter match-name="conf_fld"/>
+  <table-filter match-name="review"/>
+  <table-filter match-name="conf_rev"/>
+</hibernate-reverse-engineering>

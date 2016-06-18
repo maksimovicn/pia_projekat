@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 4, 2016 6:36:28 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hibernate.Review" table="review" catalog="pia_projekat" optimistic-lock="version">
+        <id name="idReview" type="long">
+            <column name="idReview" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="document" class="hibernate.Document" fetch="select">
+            <column name="idDocument" />
+        </many-to-one>
+        <many-to-one name="user" class="hibernate.User" fetch="select">
+            <column name="idReviewer" />
+        </many-to-one>
+        <property name="due" type="timestamp">
+            <column name="due" length="19" />
+        </property>
+        <property name="comment" type="string">
+            <column name="comment" length="1024" />
+        </property>
+        <property name="done" type="java.lang.Boolean">
+            <column name="done" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 4, 2016 6:36:28 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hibernate.ConfFldRev" table="conf_fld_rev" catalog="pia_projekat" optimistic-lock="version">
+        <composite-id name="id" class="hibernate.ConfFldRevId">
+            <key-property name="idConference" type="long">
+                <column name="idConference" />
+            </key-property>
+            <key-property name="idField" type="long">
+                <column name="idField" />
+            </key-property>
+            <key-property name="idReviewer" type="long">
+                <column name="idReviewer" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="conference" class="hibernate.Conference" update="false" insert="false" fetch="select">
+            <column name="idConference" not-null="true" />
+        </many-to-one>
+        <many-to-one name="field" class="hibernate.Field" update="false" insert="false" fetch="select">
+            <column name="idField" not-null="true" />
+        </many-to-one>
+        <many-to-one name="user" class="hibernate.User" update="false" insert="false" fetch="select">
+            <column name="idReviewer" not-null="true" />
+        </many-to-one>
+        <property name="compentency" type="java.lang.Integer">
+            <column name="compentency" />
+        </property>
+    </class>
+</hibernate-mapping>

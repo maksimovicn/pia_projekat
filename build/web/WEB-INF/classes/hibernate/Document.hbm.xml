@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 4, 2016 6:36:28 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hibernate.Document" table="document" catalog="pia_projekat" optimistic-lock="version">
+        <id name="idDocument" type="java.lang.Long">
+            <column name="idDocument" />
+            <generator class="identity" />
+        </id>
+        <property name="title" type="string">
+            <column name="title" length="64" />
+        </property>
+        <property name="keywords" type="string">
+            <column name="keywords" length="1024" />
+        </property>
+        <property name="file" type="string">
+            <column name="file" length="256" />
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="status" />
+        </property>
+        <property name="changesdeadline" type="timestamp">
+            <column name="changesdeadline" length="19" />
+        </property>
+        <set name="reviews" table="review" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idDocument" />
+            </key>
+            <one-to-many class="hibernate.Review" />
+        </set>
+        <set name="users" table="auth_doc" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="idDocument" not-null="true" />
+            </key>
+            <many-to-many entity-name="hibernate.User">
+                <column name="idAuthor" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="modifications" table="modification" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idDocument" />
+            </key>
+            <one-to-many class="hibernate.Modification" />
+        </set>
+        <set name="schedules" table="schedule" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idDocument" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.Schedule" />
+        </set>
+    </class>
+</hibernate-mapping>

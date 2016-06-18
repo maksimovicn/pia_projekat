@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 4, 2016 6:36:28 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hibernate.Schedule" table="schedule" catalog="pia_projekat" optimistic-lock="version">
+        <composite-id name="id" class="hibernate.ScheduleId">
+            <key-property name="idConference" type="long">
+                <column name="idConference" />
+            </key-property>
+            <key-property name="idDocument" type="long">
+                <column name="idDocument" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="conference" class="hibernate.Conference" update="false" insert="false" fetch="select">
+            <column name="idConference" not-null="true" />
+        </many-to-one>
+        <many-to-one name="document" class="hibernate.Document" update="false" insert="false" fetch="select">
+            <column name="idDocument" not-null="true" />
+        </many-to-one>
+        <property name="time" type="timestamp">
+            <column name="time" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 4, 2016 6:36:28 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hibernate.User" table="user" catalog="pia_projekat" optimistic-lock="version">
+        <id name="idUser" type="java.lang.Long">
+            <column name="idUser" />
+            <generator class="identity" />
+        </id>
+        <property name="username" type="string">
+            <column name="username" length="32" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="32" />
+        </property>
+        <property name="firstname" type="string">
+            <column name="firstname" length="32" />
+        </property>
+        <property name="lastname" type="string">
+            <column name="lastname" length="32" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="32" />
+        </property>
+        <property name="phone" type="string">
+            <column name="phone" length="32" />
+        </property>
+        <property name="org" type="string">
+            <column name="org" length="32" />
+        </property>
+        <property name="birthdate" type="date">
+            <column name="birthdate" length="10" />
+        </property>
+        <property name="photo" type="string">
+            <column name="photo" length="256" />
+        </property>
+        <property name="isAuthor" type="boolean">
+            <column name="isAuthor" not-null="true" />
+        </property>
+        <property name="isReviewer" type="boolean">
+            <column name="isReviewer" not-null="true" />
+        </property>
+        <property name="isCoordinator" type="boolean">
+            <column name="isCoordinator" not-null="true" />
+        </property>
+        <set name="documents" table="auth_doc" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="idAuthor" not-null="true" />
+            </key>
+            <many-to-many entity-name="hibernate.Document">
+                <column name="idDocument" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="conferences" table="conference" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idCoordinator" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.Conference" />
+        </set>
+        <set name="modifications" table="modification" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idAuthor" />
+            </key>
+            <one-to-many class="hibernate.Modification" />
+        </set>
+        <set name="reviews" table="review" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idReviewer" />
+            </key>
+            <one-to-many class="hibernate.Review" />
+        </set>
+        <set name="confFldRevs" table="conf_fld_rev" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idReviewer" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.ConfFldRev" />
+        </set>
+    </class>
+</hibernate-mapping>

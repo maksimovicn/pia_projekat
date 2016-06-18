@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 4, 2016 6:36:28 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hibernate.ConfRev" table="conf_rev" catalog="pia_projekat" optimistic-lock="version">
+        <composite-id name="id" class="hibernate.ConfRevId">
+            <key-property name="idConference" type="long">
+                <column name="idConference" />
+            </key-property>
+            <key-property name="idReviewer" type="long">
+                <column name="idReviewer" />
+            </key-property>
+        </composite-id>
+        <property name="count" type="int">
+            <column name="count" not-null="true" />
+        </property>
+        <property name="accepted" type="boolean">
+            <column name="accepted" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

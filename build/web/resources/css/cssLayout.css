@@ -1,0 +1,79 @@
+
+#top {
+    position: relative;
+    background-color: #8b2d4b;
+    color: white;
+    padding: 5px;
+    margin: 0px 0px 10px 0px;
+}
+
+#bottom {
+    position: relative;
+    background-color: #c2dfef;
+    padding: 5px;
+    margin: 10px 0px 0px 0px;
+}
+
+#left {
+        float: left;
+    background-color: #FFF0E0;
+    padding: 5px;
+    margin-right: 5px;
+    
+    width: 200px;
+    min-height: 600px;
+}
+
+#right {
+    float: right;
+    background-color: #ece3a5;
+    padding: 5px;
+    width: 150px;
+}
+
+.center_content {
+    position: relative;
+    background-color: #dddddd;
+    padding: 5px;
+}
+
+.left_content {
+    background-color: #c2dfef;
+    padding: 5px;
+    margin-left: 170px;
+    height: 600px;
+}
+
+.right_content {
+    background-color: #dddddd;
+    padding: 5px;
+    margin: 0px 170px 0px 170px;
+}
+
+#top a:link, #top a:visited {
+  color: black;
+  font-weight : bold;
+  text-decoration: none;
+}
+
+#top a:link:hover, #top a:visited:hover  {
+  color: black;
+  font-weight : bold;
+  text-decoration : underline;
+}
+
+.txtUser {
+    margin: 5px !important;
+    
+}
+
+#header{
+     height: 100px;
+     background:  url("http://evo6.net/wp-content/uploads/2013/10/header_1400px_9.png") no-repeat ;
+     background-size: 120%;
+}
+
+.ui-menubar{
+    background-color: #FFF0E0;
+    
+}
