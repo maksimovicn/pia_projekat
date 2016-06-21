@@ -18,6 +18,7 @@ import org.hibernate.Session;
 @ManagedBean(name = "controller")
 @SessionScoped
 public class Controller {
+    private String korisnickoime;
     
     public void method() {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
